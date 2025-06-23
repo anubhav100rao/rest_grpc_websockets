@@ -1,19 +1,24 @@
 // user-service.js
-import express from "express";
+const express = require("express");
 const app = express();
 app.use(express.json());
 
 // GET /users/:id
 app.get("/users/:id", (req, res) => {
 	const { id } = req.params;
-	// Read X-User-ID injected by gateway
+	// Log headers to verify injection
+	console.log("[User Service] Headers:", req.headers);
 	const caller = req.header("x-user-id") || "unknown";
-	// Return dummy data
 	res.json({
 		userId: id,
 		name: `User${id}`,
 		requestedBy: caller,
 	});
+});
+
+// (Optional) health endpoint
+app.get("/health", (req, res) => {
+	res.json({ status: "user-service up" });
 });
 
 const PORT = 3001;
