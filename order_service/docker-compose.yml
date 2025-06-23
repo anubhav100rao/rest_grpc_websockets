@@ -19,7 +19,7 @@ services:
         environment:
             # (none needed for this simple mock)
             # if needed, add configs here
-            PASS: "secret"
+            DBS: "sec"
         depends_on:
             - rabbitmq
 
