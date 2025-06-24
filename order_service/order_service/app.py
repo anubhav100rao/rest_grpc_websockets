@@ -9,7 +9,7 @@ app = FastAPI()
 
 # Read environment variables
 PAYMENT_SERVICE_URL = os.getenv(
-    "PAYMENT_SERVICE_URL", "http://payment-service:8000")
+    "PAYMENT_SERVICE_URL", "http://localhost:8000")
 RABBITMQ_HOST = os.getenv("RABBITMQ_HOST", "rabbitmq")
 RABBITMQ_USER = os.getenv("RABBITMQ_USER", "user")
 RABBITMQ_PASS = os.getenv("RABBITMQ_PASS", "password")
